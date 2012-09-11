@@ -65,6 +65,12 @@ def install_packages():
         'nano',
         'acl',
 
+        ## FacebookBundle
+        'curl',
+        'libcurl3',
+        'libcurl3-dev',
+        'php5-curl',
+
         ## specific to the projet
         'php5-xsl'
 
@@ -115,6 +121,7 @@ def install_hosts():
     with files.watch('/etc/lighttpd/conf-enabled/90-hosts.conf', True, service.restart, 'lighttpd'):
         require.files.file(path='/etc/lighttpd/conf-available/90-hosts.conf', source = os.path.dirname(__file__) + '/files/90-hosts.conf')
         run('lighttpd-enable-mod hosts')
+        run('lighttpd-enable-mod rewrite')
 
 
 def create_user(name='theodo'):
