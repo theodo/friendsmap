@@ -1,0 +1,3 @@
+theodo_map_homepage:
+    pattern:  /
+    defaults: { _controller: TheodoMapBundle:Default:index }
