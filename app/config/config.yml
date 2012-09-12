@@ -57,3 +57,12 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+# FOSFacebook Configuration
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
+    alias:  facebook
+    app_id: 353897074698448
+    secret: 4d86e3a604f715a6593a135f6f29cd43
+    cookie: true
+    permissions: [user_location, friends_location]

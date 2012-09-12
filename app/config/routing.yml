@@ -1,3 +1,9 @@
 theodo_map:
     resource: "@TheodoMapBundle/Resources/config/routing.yml"
     prefix:   /
+
+_security_check:
+    pattern:  /login_check
+
+_security_logout:
+    pattern:  /logout
