@@ -16,6 +16,9 @@
 
 		{% block stylesheets %}{% endblock %}
 
+    <style type="text/css">
+      #map_canvas { height: 300px }
+    </style>
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 
@@ -25,10 +28,25 @@
 		<script type="text/javascript" src="{{ asset_url }}" charset="utf-8"></script>
 		{% endjavascripts %}
 
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBpaH24zSoDO7Gi2OpDcOSF634t2yO_8Mc&sensor=false">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(48.856614, 2.352222),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+      }
+    </script>
+
 
 	</head>
 
-	<body>
+	<body onload="initialize()">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -51,21 +69,13 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1>Hello, world!</h1>
+        <h1>Hello {{ user.first_name }}</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p>{{ facebook_login_button({'autologoutlink': true}) }}</p>
       </div>
 
       <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-        </div>
-        <div class="span4">
-       </div>
-        <div class="span4">
-        </div>
-      </div>
-
+        <div id="map_canvas"></div>
       <hr>
 
       <footer>
