@@ -8,14 +8,15 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-    	$facebookApi = $this->get('fos_facebook.api');
-    	$user = $facebookApi->api('/me');
-    	$friends = $facebookApi->api('/me/friends?fields=id,name,location');
-    	$friends = $friends['data'];
+    	$friendManager = $this->get('theodo_map.friend_manager');
+    	$facebookApi = $friendManager->getFacebookApi();
+    	$user = $friendManager->getMe();
+    	$friends = $friendManager->getFriends();
 
 
         return $this->render('TheodoMapBundle:Default:index.html.twig', array(
         	'user' => $user,
+        	// 'user' => array('first_name'=> 'jonathan'),
         ));
     }
 }

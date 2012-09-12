@@ -1,7 +1,7 @@
 parameters:
-#    theodo_map.example.class: Theodo\MapBundle\Example
+    theodo_map.friend_manager.class: Theodo\MapBundle\Manager\FriendManager
 
 services:
-#    theodo_map.example:
-#        class: %theodo_map.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    theodo_map.friend_manager:
+        class: %theodo_map.friend_manager.class%
+        arguments: [@fos_facebook.api]

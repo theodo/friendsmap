@@ -16,33 +16,16 @@
 
 		{% block stylesheets %}{% endblock %}
 
-    <style type="text/css">
-      #map_canvas { height: 300px }
-    </style>
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-		{% javascripts 
-			'bundles/theodomap/css/bootstrap.min.js'
-		%}
-		<script type="text/javascript" src="{{ asset_url }}" charset="utf-8"></script>
-		{% endjavascripts %}
-
-    <script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBpaH24zSoDO7Gi2OpDcOSF634t2yO_8Mc&sensor=false">
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(48.856614, 2.352222),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),
-            mapOptions);
-      }
-    </script>
-
+    {% javascripts 
+      'bundles/theodomap/js/bootstrap.min.js'
+      'bundles/theodomap/js/main.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}" charset="utf-8"></script>
+    {% endjavascripts %}
 
 	</head>
 

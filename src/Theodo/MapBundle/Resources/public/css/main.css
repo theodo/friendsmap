@@ -2,3 +2,7 @@ body {
 	padding-top: 60px;
 	padding-bottom: 40px;
 }
+
+#map_canvas {
+	height: 500px;
+}
