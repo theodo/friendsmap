@@ -1,5 +1,5 @@
 {
-    "hash": "3f7e2cc261ed80a2b8f1172da81c62d4",
+    "hash": "4f5fc308af5a19a3368349f26879057e",
     "packages": [
         {
             "package": "doctrine/common",
@@ -24,6 +24,42 @@
             "version": "dev-master",
             "source-reference": "d3c930599723c8343472a5791b0f5909a4111a73",
             "commit-date": "1347289964"
+        },
+        {
+            "package": "doctrine/mongodb",
+            "version": "dev-master",
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
+        },
+        {
+            "package": "doctrine/mongodb",
+            "version": "dev-master",
+            "source-reference": "1d5b2eec0a970bcdae36f4a9b275ccff1f24f6f7",
+            "commit-date": "1347540618"
+        },
+        {
+            "package": "doctrine/mongodb-odm",
+            "version": "dev-master",
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
+        },
+        {
+            "package": "doctrine/mongodb-odm",
+            "version": "dev-master",
+            "source-reference": "76a75f24e125fd01640c151710e2809059dc814a",
+            "commit-date": "1347540530"
+        },
+        {
+            "package": "doctrine/mongodb-odm-bundle",
+            "version": "dev-master",
+            "alias-pretty-version": "3.0.x-dev",
+            "alias-version": "3.0.9999999.9999999-dev"
+        },
+        {
+            "package": "doctrine/mongodb-odm-bundle",
+            "version": "dev-master",
+            "source-reference": "fde4500cd281175d3d971f6d5e4aaa3494459a7c",
+            "commit-date": "1347540339"
         },
         {
             "package": "doctrine/orm",
@@ -76,8 +112,8 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "dfbb776288baf9319d1693195af2cb6e00729901",
-            "commit-date": "1347039484"
+            "source-reference": "63f430864d57674b33c2fd63b2e9a211b604a7f4",
+            "commit-date": "1347539260"
         },
         {
             "package": "monolog/monolog",
@@ -124,8 +160,8 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "c97353b1ebffe25a224146f69d17efe24c093def",
-            "commit-date": "1347083952"
+            "source-reference": "1e5482485f30a2431f9b8eb19a091eef4b57008c",
+            "commit-date": "1347542176"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -136,8 +172,8 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "4e7e8a039fa19434f04558473adbb201118af942",
-            "commit-date": "1346199949"
+            "source-reference": "ca999f55c18b23daf1dc148efe4c42122eb8fd3b",
+            "commit-date": "1347524781"
         },
         {
             "package": "symfony/monolog-bundle",
@@ -165,15 +201,9 @@
         },
         {
             "package": "symfony/symfony",
-            "version": "dev-master",
-            "alias-pretty-version": "2.2.x-dev",
-            "alias-version": "2.2.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/symfony",
-            "version": "dev-master",
-            "source-reference": "885d4733664b040765f2faab68f3aacef58d1216",
-            "commit-date": "1347308836"
+            "version": "2.1.x-dev",
+            "source-reference": "f23fd03732e115fd15ec675c0ada4cba20a035d1",
+            "commit-date": "1347354770"
         },
         {
             "package": "twig/extensions",
@@ -196,8 +226,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "68b8c4619c5bbe82bd345fe56070dec8c356610a",
-            "commit-date": "1347025342"
+            "source-reference": "956a66e6da304ead2aa2632acc01118b360d19d3",
+            "commit-date": "1347542132"
         }
     ],
     "packages-dev": null,

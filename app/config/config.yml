@@ -66,3 +66,15 @@ fos_facebook:
     secret: d561a2ace0c665874b8f32a7494d643a
     cookie: true
     permissions: [user_location, friends_location]
+
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://localhost:27017
+            options:
+                connect: true
+    default_database: friendsmap_database
+    document_managers:
+        default:
+            auto_mapping: true

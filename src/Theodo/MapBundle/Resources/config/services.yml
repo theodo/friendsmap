@@ -4,4 +4,4 @@ parameters:
 services:
     theodo_map.friend_manager:
         class: %theodo_map.friend_manager.class%
-        arguments: [@fos_facebook.api]
+        arguments: [@fos_facebook.api, @doctrine_mongodb]

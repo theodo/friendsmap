@@ -2,15 +2,17 @@
 
 namespace Theodo\MapBundle\Manager;
 
-
+use \Theodo\MapBundle\Document\Location;
 
 class FriendManager 
 {
 	protected $facebookApi;
+	protected $dm;
 
-	public function __construct($facebookApi)
+	public function __construct($facebookApi, $doctrineMongodb)
 	{
 		$this->facebookApi = $facebookApi;
+		$this->dm = $doctrineMongodb->getManager();
 	}
 
 	public function getFacebookApi()
@@ -29,24 +31,50 @@ class FriendManager
 		$friends = $friends['data'];
 
 		foreach ($friends as $key => $friend) {
-			// if (array_key_exists('location', $friend))
-			// {
-			// 	$json = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($friend['location']['name']) . '&sensor=false');
-			// 	$data = json_decode($json, TRUE);
-			// 	if (array_key_exists(0, $data['results']))
-			// 	{
-			// 		$location = $data['results'][0]['geometry']['location'];
-			// 		$friends[$key]['location']['lat'] = $location['lat'];
-			// 		$friends[$key]['location']['lng'] = $location['lng'];
-			// 	}
-			// }
+			// We check if the friend has informed his location
 			if (array_key_exists('location', $friend))
 			{
-				$friends[$key]['location']['lat'] = rand(0, 50);
-				$friends[$key]['location']['lng'] = rand(0, 50);
+				$location = $this->getLocation($friends[$key]['location']['name']);
+				if ($location != null) 
+				{
+					$friends[$key]['location']['lat'] = $location->getLat();
+					$friends[$key]['location']['lng'] = $location->getLng();
+				}
 			}
 		}
 
     	return $friends;
+	}
+
+	private function getLocation($name)
+	{
+		$location = $this->getLocationFromCache($name);
+		if ($location == null)
+		{
+			$location = $this->getLocationFromGoogle($name);
+		}
+		return $location;
+	}
+
+	private function getLocationFromCache($name)
+	{
+		return $this->dm->getRepository('TheodoMapBundle:Location')->findOneByName($name);
+	}
+
+	private function getLocationFromGoogle($name)
+	{
+		$geocodeJson = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($name) . '&sensor=false');
+		$geocode = json_decode($geocodeJson, TRUE);
+
+		// We check if the geocode returns a result
+		if (!array_key_exists(0, $geocode['results'])) return null;
+		
+		// If there is a result, we cache it
+		$geocodeLocation = $geocode['results'][0]['geometry']['location'];
+		$location = new Location($name, $geocodeLocation['lat'], $geocodeLocation['lng']);
+	    $this->dm->persist($location);
+	    $this->dm->flush();
+
+	    return $location;
 	}
 }
