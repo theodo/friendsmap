@@ -1,3 +1,8 @@
 theodo_map_homepage:
     pattern:  /
     defaults: { _controller: TheodoMapBundle:Default:index }
+
+theodo_map_api_friends:
+    pattern:  /api/friends
+    defaults: { _controller: TheodoMapBundle:Api:friends, _format: json }
+    requirements: { _format: (json), _method: GET }

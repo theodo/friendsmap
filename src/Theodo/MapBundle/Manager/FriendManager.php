@@ -29,20 +29,23 @@ class FriendManager
 		$friends = $friends['data'];
 
 		foreach ($friends as $key => $friend) {
+			// if (array_key_exists('location', $friend))
+			// {
+			// 	$json = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($friend['location']['name']) . '&sensor=false');
+			// 	$data = json_decode($json, TRUE);
+			// 	if (array_key_exists(0, $data['results']))
+			// 	{
+			// 		$location = $data['results'][0]['geometry']['location'];
+			// 		$friends[$key]['location']['lat'] = $location['lat'];
+			// 		$friends[$key]['location']['lng'] = $location['lng'];
+			// 	}
+			// }
 			if (array_key_exists('location', $friend))
 			{
-				$json = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($friend['location']['name']) . '&sensor=false');
-				$data = json_decode($json, TRUE);
-				if (array_key_exists(0, $data['results']))
-				{
-					$location = $data['results'][0]['geometry']['location'];
-					$friends[$key]['location']['lat'] = $location['lat'];
-					$friends[$key]['location']['lng'] = $location['lng'];
-				}
+				$friends[$key]['location']['lat'] = rand(0, 50);
+				$friends[$key]['location']['lng'] = rand(0, 50);
 			}
 		}
-
-		var_dump($friends);
 
     	return $friends;
 	}

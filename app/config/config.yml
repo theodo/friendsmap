@@ -62,7 +62,7 @@ swiftmailer:
 fos_facebook:
     file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
     alias:  facebook
-    app_id: 353897074698448
-    secret: 4d86e3a604f715a6593a135f6f29cd43
+    app_id: 442961395742269
+    secret: d561a2ace0c665874b8f32a7494d643a
     cookie: true
     permissions: [user_location, friends_location]
