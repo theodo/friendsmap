@@ -53,7 +53,6 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Hello {{ user.first_name }}</h1> 
-        <p>{{ facebook_login_button({'autologoutlink': true}) }}</p>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <button class="btn" id="load_friends">Load Friends</p>
       </div>
@@ -68,7 +67,5 @@
 
     </div> <!-- /container -->
 	</body>
-
-  {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
 
 </html>

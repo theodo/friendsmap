@@ -22,6 +22,11 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        public:
+            pattern: ^/.*
+            fos_facebook:
+                default_target_path: /
+
         login:
             pattern:  ^/demo/secured/login$
             security: false
@@ -37,6 +42,7 @@ security:
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
+
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
