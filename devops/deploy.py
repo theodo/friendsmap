@@ -64,9 +64,9 @@ def deploy():
   local('git tag -a %s -m "%s"' % (tag, _getrole()))
   local('git push --tags')
   with cd(path[_getrole()]):
-    run('git fetch')
+    theodo('git fetch')
     tag = run('git tag -l %s/* | sort | tail -n1' % _getrole())
-    run('git checkout ' + tag)
+    theodo('git checkout ' + tag)
     theodo('php composer.phar install')
     theodo('php app/console cache:clear')
     theodo('php app/console assetic:dump')

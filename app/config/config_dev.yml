@@ -22,5 +22,7 @@ monolog:
 assetic:
     use_controller: true
 
-#swiftmailer:
-#    delivery_address: me@example.com
+# FOSFacebook Configuration
+fos_facebook:
+    app_id: 159887960802125
+    secret: 57c847103962d69e13482c6e8dda9a34

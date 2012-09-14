@@ -66,7 +66,8 @@ def install_packages():
         'acl',
 
         ## specific to the projet
-        'php5-xsl'
+        'php5-xsl',
+        'php5-curl'
 
     ]
     require.deb.packages(packages)
