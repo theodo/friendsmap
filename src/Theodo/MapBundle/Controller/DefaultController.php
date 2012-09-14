@@ -14,7 +14,6 @@ class DefaultController extends Controller
 
         return $this->render('TheodoMapBundle:Default:index.html.twig', array(
         	'user' => $user,
-            // 'user' => array('first_name'=> 'jonathan'),
         ));
     }
 }
