@@ -20,16 +20,26 @@ function initializeMap() {
 
 function initializeListener() {
     $('#load_friends').click(function() {
+        var i, length;
+        var initialButtonText = $(this).text():
+        $(this).text('Loading'):
+        for(var i=0; i < markers.length; i++){
+            markers[i].setMap(null);
+        }
+        markers = [];
+
         // TODO: del this hard url
         $.getJSON('http://localhost:4042/app_dev.php/api/friends', function(friends) {
-            var i, length;
             for (i=0, length = friends.length; i < length; i++) {
                 if (null != friends[i].location) {
                     addMarker(friends[i].location.lat, friends[i].location.lng, friends[i].name);
                 }
             }
+        })
+        .success(function() {
+            $('#load_friends').text(initialButtonText);
         });
-        
+
         return false;
     });
 }
