@@ -21,9 +21,9 @@ function initializeMap() {
 function initializeListener() {
     $('#load_friends').click(function() {
         var i, length;
-        var initialButtonText = $(this).text():
-        $(this).text('Loading'):
-        for(var i=0; i < markers.length; i++){
+        var initialButtonText = $(this).text();
+        $(this).text('Loading');
+        for(i=0; i < markers.length; i++){
             markers[i].setMap(null);
         }
         markers = [];
