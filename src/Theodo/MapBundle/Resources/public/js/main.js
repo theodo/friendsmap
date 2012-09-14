@@ -28,8 +28,7 @@ function initializeListener() {
         }
         markers = [];
 
-        // TODO: del this hard url
-        $.getJSON('http://localhost:4042/app_dev.php/api/friends', function(friends) {
+        $.getJSON(apiUrl, function(friends) {
             for (i=0, length = friends.length; i < length; i++) {
                 if (null != friends[i].location) {
                     addMarker(friends[i].location.lat, friends[i].location.lng, friends[i].name);
