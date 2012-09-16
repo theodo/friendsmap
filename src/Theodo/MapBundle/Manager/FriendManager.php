@@ -53,11 +53,14 @@ class FriendManager
 		{
 			$location = $this->getLocationFromGoogle($name);
 		}
+		
 		return $location;
 	}
 
 	private function getLocationFromCache($name)
 	{
+		if (null == $name || empty($name)) return null;
+
 		return $this->dm->getRepository('TheodoMapBundle:Location')->findOneByName($name);
 	}
 
