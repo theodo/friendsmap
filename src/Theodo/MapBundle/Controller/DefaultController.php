@@ -9,8 +9,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-    	$friendManager = $this->get('theodo_map.friend_manager');
-    	$user = $friendManager->getMe();
+    	$friendsLocationManager = $this->get('theodo_map.friends_location_manager');
+    	$user = $friendsLocationManager->getMe();
 
         return $this->render('TheodoMapBundle:Default:index.html.twig', array(
         	'user' => $user,

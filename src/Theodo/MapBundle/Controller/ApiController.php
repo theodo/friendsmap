@@ -9,10 +9,11 @@ class ApiController extends Controller
 {
     public function friendsAction()
     {
-        $friendManager = $this->get('theodo_map.friend_manager');
-        $friends = $friendManager->getFriends();
+        $friendsLocationManager = $this->get('theodo_map.friends_location_manager');
+        $friends = $friendsLocationManager->getFriends();
 
-        $response = new Response(json_encode($friends));  
-        return $response;  
+        $response = new Response(json_encode($friends));
+
+        return $response;
     }
 }
