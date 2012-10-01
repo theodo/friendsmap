@@ -1,0 +1,3 @@
+theodo_map:
+    resource: "@TheodoMapBundle/Resources/config/routing.yml"
+    prefix:   /

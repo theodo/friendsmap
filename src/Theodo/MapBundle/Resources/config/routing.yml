@@ -1,0 +1,14 @@
+theodo_map_homepage:
+    pattern:  /
+    defaults: { _controller: TheodoMapBundle:Default:index }
+
+_security_check:
+    pattern:  /login_check
+
+_security_logout:
+    pattern:  /logout
+
+theodo_map_api_friends:
+    pattern:  /api/friends
+    defaults: { _controller: TheodoMapBundle:Api:friends, _format: json }
+    requirements: { _format: (json), _method: GET }

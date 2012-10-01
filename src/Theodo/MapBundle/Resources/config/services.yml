@@ -1,0 +1,7 @@
+parameters:
+    theodo_map.friends_location_manager.class: Theodo\MapBundle\Manager\FriendsLocationManager
+
+services:
+    theodo_map.friends_location_manager:
+        class: %theodo_map.friends_location_manager.class%
+        arguments: [@fos_facebook.api, @doctrine_mongodb]
